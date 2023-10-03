@@ -7,6 +7,7 @@ self.addEventListener('push', function(e) {
             primaryKey: '2'
         }    
     };
+    console.log("sent")
     e.waitUntill(
         self.registration.showNotification('Hello World!', options)
     );
