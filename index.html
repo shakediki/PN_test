@@ -17,7 +17,6 @@
 
         async function subscribe()
         {
-            try{
             let sw = await navigator.serviceWorker.ready;
             let push = await sw.pushManager.subscribe({
                 userVisibleOnly: true,
@@ -33,16 +32,6 @@
             console.log(parsed.keys.auth); // Output: tDmscBBgfvslXDFnMhqtYg
             
             document.getElementById("t").innerHTML = (JSON.stringify(push))
-            }
-            catch (error) {
-              // Check if the error is related to the known issue
-            if (error.message.includes('masked-url')) {
-              // Ignore the error (do nothing)
-          } else {
-              // Handle other errors
-          throw error; // Re-throw the error if it's not the expected one
-              }
-          }
         }
     </script>
     
